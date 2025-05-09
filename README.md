@@ -473,3 +473,21 @@ The script initializes by setting up global variables and loading an optional co
   * **Security:** The security-related suggestions are basic heuristics. For comprehensive security monitoring, use dedicated tools like WAFs, IDS/IPS, and SIEMs.
 
 ---
+
+## 📬 Connect with Me  
+
+<p align="center">
+    <a href="mailto:aghazal085@gmail.com">
+        <img src="https://img.shields.io/badge/Email-Contact%20Me-red?style=for-the-badge&logo=gmail&logoColor=white"/>
+    </a>
+    <a href="https://www.linkedin.com/in/ahmedghaza1" target="_blank">
+        <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white"/>
+    </a>
+</p>  
+
+---
+
+<p align="center">
+    <img src="https://capsule-render.vercel.app/api?type=waving&height=150&color=gradient&section=footer" alt="Footer">
+</p>  
+
