@@ -579,29 +579,24 @@ process_log_file_and_args "$@"
 
 
 while true; do
-    display_menu
-    read -rp "Enter your choice [1-12, A, S, Q]: " choice
-
     case "$choice" in
-        1) get_request_counts ;;
-        2) get_unique_ips ;;
-        3) get_failure_requests ;;
-        4) get_top_user ;;
-        5) get_daily_request_averages ;;
-        6) get_days_highest_failures ;;
-        7) get_requests_by_hour ;;
-        8) get_status_codes_breakdown ;;
-        9) get_most_active_user_by_method ;;
-        10) get_failure_patterns_time ;;
-        11) analyze_user_agents ;; # New
-        12) analyze_referers ;;    # New
-        A|a) run_all_analyses ;;
-        S|s) generate_analysis_suggestions ;;
-        Q|q) echo "Exiting."; cleanup_temp_file; exit 0 ;;
-        *) echo "Invalid option. Please try again." ;;
+        1) choice=n; get_request_counts ;;
+        2) choice=p; get_unique_ips ;;
+        3) choice=n; get_failure_requests ;;
+        4) choice=n; get_top_user ;;
+        5) choice=n; get_daily_request_averages ;;
+        6) choice=n; get_days_highest_failures ;;
+        7) choice=p; get_requests_by_hour ;;
+        8) choice=n; get_status_codes_breakdown ;;
+        9) choice=n; get_most_active_user_by_method ;;
+        10) choice=p; get_failure_patterns_time ;;
+        11) choice=p; analyze_user_agents ;;
+        12) choice=p; analyze_referers ;;
+        A|a) choice=p; run_all_analyses ;;
+        S|s) choice=p; generate_analysis_suggestions ;;
+        Q|q) choice=p; >&2 echo "Exiting."; cleanup_temp_file; exit 0 ;;
+        p) >&2 printf 'Press Enter to continue…'; read -r ; choice=n ;;
+        n) display_menu ; >&2 printf 'Enter your choice [1-12, A, S, Q]: '; read -r choice ;;
+        *) test -z "${choice:-}" || >&2 printf 'Unknown choice. ' ; choice=n ;;
     esac
-    if [[ ! "$choice" =~ ^[QqAa]$ ]]; then 
-      echo ""
-      read -rp "Press Enter to continue..."
-    fi
 done
